@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Canggih</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .event-demo {
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+        }
+        
+        input, button {
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        input {
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        
+        .input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .input-group input {
+            flex: 1;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            color: white;
+            border: none;
+            cursor: pointer;
+            min-width: 40px;
+        }
+        
+        #btn-tambah {
+            background-color: #22c55e;
+        }
+        
+        #btn-tambah:hover {
+            background-color: #16a34a;
+        }
+        
+        #btn-kurang {
+            background-color: #eab308;
+        }
+        
+        #btn-kurang:hover {
+            background-color: #ca8a04;
+        }
+        
+        #btn-kali {
+            background-color: #a855f7;
+        }
+        
+        #btn-kali:hover {
+            background-color: #9333ea;
+        }
+        
+        #btn-bagi {
+            background-color: #ef4444;
+        }
+        
+        #btn-bagi:hover {
+            background-color: #dc2626;
+        }
+        
+        #btn-pangkat {
+            background-color: #3b82f6;
+        }
+        
+        #btn-pangkat:hover {
+            background-color: #2563eb;
+        }
+        
+        #btn-akar {
+            background-color: #f97316;
+        }
+        
+        #btn-akar:hover {
+            background-color: #ea580c;
+        }
+        
+        #btn-modulus {
+            background-color: #6366f1;
+        }
+        
+        #btn-modulus:hover {
+            background-color: #4f46e5;
+        }
+        
+        .success {
+            color: #166534;
+            padding: 0.5rem;
+            background-color: #dcfce7;
+            border-radius: 0.25rem;
+        }
+        
+        .error {
+            color: #b91c1c;
+            padding: 0.5rem;
+            background-color: #fee2e2;
+            border-radius: 0.25rem;
+        }
+        
+        .operations-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8fafc;
+            border-radius: 0.25rem;
+            border: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="event-demo">
+        <h2 class="text-xl">Demo Event Handler</h2>
+        <input type="text" id="nama-input" placeholder="Masukkan nama Kalian">
+        <button id="sapa-button" style="background-color: #3b82f6;">Sapa Saya</button>
+        <div id="sapa-output" class="mt-3"></div>
+        
+        <div style="margin-top: 1.5rem;">
+            <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Kalkulator Canggih</h3>
+            <div class="input-group">
+                <input type="number" id="angka1" placeholder="Angka 1">
+                <input type="number" id="angka2" placeholder="Angka 2">
+            </div>
+            <div class="button-group">
+                <button id="btn-tambah">+</button>
+                <button id="btn-kurang">-</button>
+                <button id="btn-kali">×</button>
+                <button id="btn-bagi">÷</button>
+                <button id="btn-pangkat">^</button>
+                <button id="btn-akar">√</button>
+                <button id="btn-modulus">%</button>
+            </div>
+            <div id="hasil-kalkulator" style="margin-top: 0.75rem;"></div>
+            
+            <div class="operations-info">
+                <h4 style="margin-top: 0; margin-bottom: 0.5rem;">Keterangan Operasi:</h4>
+                <ul>
+                    <li><strong>+</strong>: Penjumlahan</li>
+                    <li><strong>-</strong>: Pengurangan</li>
+                    <li><strong>×</strong>: Perkalian</li>
+                    <li><strong>÷</strong>: Pembagian</li>
+                    <li><strong>^</strong>: Pangkat (Angka1 ^ Angka2)</li>
+                    <li><strong>√</strong>: Akar Kuadrat (Hanya menggunakan Angka1)</li>
+                    <li><strong>%</strong>: Modulus/Sisa Pembagian (Angka1 % Angka2)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="kalkulator.js"></script>
+</body>
+</html>
