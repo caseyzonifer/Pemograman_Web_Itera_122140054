@@ -1,0 +1,143 @@
+# Dokumentasi Aplikasi Manajemen Matakuliah dengan Pyramid
+
+## Deskripsi
+Aplikasi ini adalah API RESTful sederhana untuk manajemen data matakuliah menggunakan Pyramid Framework dan PostgreSQL sebagai database. API ini mendukung operasi dasar CRUD (Create, Read, Update, Delete) untuk entitas Matakuliah.
+
+## Teknologi yang Digunakan
+- Pyramid Framework
+- SQLAlchemy ORM
+- Alembic (migrasi database)
+- PostgreSQL
+- JSON (format respons API)
+
+## Model Data
+Model `Matakuliah` memiliki struktur sebagai berikut:
+- `id`: Primary key, auto-increment
+- `kode_mk`: Kode matakuliah (unik), tipe Text
+- `nama_mk`: Nama matakuliah, tipe Text
+- `sks`: Satuan Kredit Semester, tipe Integer
+- `semester`: Semester matakuliah, tipe Integer
+
+## API Endpoints
+
+### 1. Mendapatkan Semua Matakuliah
+- **URL**: `/api/matakuliah`
+- **Method**: GET
+- **Response Format**:
+  ```json
+  {
+    "matakuliahs": [
+      {
+        "id": 1,
+        "kode_mk": "MK001",
+        "nama_mk": "Pemrograman Web",
+        "sks": 3,
+        "semester": 5
+      },
+      ...
+    ]
+  }
+  ```
+
+### 2. Mendapatkan Detail Matakuliah
+- **URL**: `/api/matakuliah/{id}`
+- **Method**: GET
+- **Response Format**:
+  ```json
+  {
+    "matakuliah": {
+      "id": 1,
+      "kode_mk": "MK001",
+      "nama_mk": "Pemrograman Web",
+      "sks": 3,
+      "semester": 5
+    }
+  }
+  ```
+
+### 3. Menambahkan Matakuliah Baru
+- **URL**: `/api/matakuliah`
+- **Method**: POST
+- **Request Body**:
+  ```json
+  {
+    "kode_mk": "MK004",
+    "nama_mk": "Kecerdasan Buatan",
+    "sks": 3,
+    "semester": 6
+  }
+  ```
+- **Response Format**:
+  ```json
+  {
+    "success": true,
+    "matakuliah": {
+      "id": 4,
+      "kode_mk": "MK004",
+      "nama_mk": "Kecerdasan Buatan",
+      "sks": 3,
+      "semester": 6
+    }
+  }
+  ```
+
+### 4. Mengupdate Matakuliah
+- **URL**: `/api/matakuliah/{id}`
+- **Method**: PUT
+- **Request Body** (semua field opsional):
+  ```json
+  {
+    "nama_mk": "Pemrograman Web Lanjut",
+    "sks": 4
+  }
+  ```
+- **Response Format**:
+  ```json
+  {
+    "success": true,
+    "matakuliah": {
+      "id": 1,
+      "kode_mk": "MK001",
+      "nama_mk": "Pemrograman Web Lanjut",
+      "sks": 4,
+      "semester": 5
+    }
+  }
+  ```
+
+### 5. Menghapus Matakuliah
+- **URL**: `/api/matakuliah/{id}`
+- **Method**: DELETE
+- **Response Format**:
+  ```json
+  {
+    "success": true,
+    "message": "Matakuliah dengan id 3 berhasil dihapus"
+  }
+  ```
+
+## Validasi
+API melakukan validasi dasar:
+- Field wajib: kode_mk, nama_mk, sks, semester
+- Tipe data: sks dan semester harus berupa angka positif
+
+## Kesalahan (Error)
+Format respons kesalahan:
+```json
+{
+  "error": "Pesan kesalahan"
+}
+```
+
+Contoh kesalahan:
+- Matakuliah tidak ditemukan
+- Field wajib tidak diisi
+- Nilai SKS atau semester tidak valid
+
+## Pengembangan Lanjutan
+Beberapa fitur yang dapat ditambahkan untuk pengembangan lanjutan:
+- Autentikasi dan otorisasi
+- Pagination untuk data yang banyak
+- Fitur pencarian dan filter berdasarkan kode atau nama matakuliah
+- Relasi dengan tabel lain (misalnya: Dosen, Jurusan)
+- Unit testing dan integration testing

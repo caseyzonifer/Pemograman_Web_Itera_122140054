@@ -1,0 +1,20 @@
+# 1. Pastikan virtual environment telah aktif
+# Di Windows:
+# venv\Scripts\activate
+# Di macOS/Linux:
+# source venv/bin/activate
+
+# 2. Pastikan PostgreSQL sudah running dan database telah dibuat
+# (lihat konfigurasi di development.ini)
+
+# 3. Buat migrasi untuk tabel matakuliah
+alembic -c development.ini revision --autogenerate -m "create matakuliah table"
+
+# 4. Jalankan migrasi
+alembic -c development.ini upgrade head
+
+# 5. Inisialisasi database dengan data awal
+python -m pyramid_matakuliah.scripts.initialize_db development.ini
+
+# 6. Jalankan server development
+pserve development.ini --reload

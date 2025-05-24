@@ -1,0 +1,46 @@
+# Pengujian untuk Linux/macOS:
+
+# 1. Mendapatkan semua matakuliah
+curl -X GET http://localhost:6543/api/matakuliah
+
+# 2. Mendapatkan detail satu matakuliah (ID 1)
+curl -X GET http://localhost:6543/api/matakuliah/1
+
+# 3. Menambahkan matakuliah baru
+curl -X POST http://localhost:6543/api/matakuliah \
+-H "Content-Type: application/json" \
+-d '{
+"kode_mk": "MK004",
+"nama_mk": "Kecerdasan Buatan",
+"sks": 3,
+"semester": 6
+}'
+
+# 4. Mengupdate matakuliah (ID 1)
+curl -X PUT http://localhost:6543/api/matakuliah/1 \
+-H "Content-Type: application/json" \
+-d '{
+"nama_mk": "Pemrograman Web Lanjut",
+"sks": 4
+}'
+
+# 5. Menghapus matakuliah (ID 3)
+curl -X DELETE http://localhost:6543/api/matakuliah/3
+
+
+# Pengujian untuk Windows:
+
+# 1. Mendapatkan semua matakuliah
+curl -X GET http://localhost:6543/api/matakuliah
+
+# 2. Mendapatkan detail satu matakuliah (ID 1)
+curl -X GET http://localhost:6543/api/matakuliah/1
+
+# 3. Menambahkan matakuliah baru
+curl -X POST http://localhost:6543/api/matakuliah -H "Content-Type: application/json" -d "{\"kode_mk\": \"MK004\", \"nama_mk\": \"Kecerdasan Buatan\", \"sks\": 3, \"semester\": 6}"
+
+# 4. Mengupdate matakuliah (ID 1)
+curl -X PUT http://localhost:6543/api/matakuliah/1 -H "Content-Type: application/json" -d "{\"nama_mk\": \"Pemrograman Web Lanjut\", \"sks\": 4}"
+
+# 5. Menghapus matakuliah (ID 3)
+curl -X DELETE http://localhost:6543/api/matakuliah/3

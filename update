@@ -1,0 +1,10 @@
+# Bagian dalam development.ini yang perlu diubah:
+
+# Cari dan ganti baris sqlalchemy.url dengan konfigurasi PostgreSQL:
+sqlalchemy.url = postgresql://pyramid_user:pyramid_pass@localhost:5432/pyramid_matakuliah
+
+# Pastikan juga sudah membuat database dan user di PostgreSQL:
+# Dari CLI PostgreSQL (psql -U postgres):
+# CREATE DATABASE pyramid_matakuliah;
+# CREATE USER pyramid_user WITH ENCRYPTED PASSWORD 'pyramid_pass';
+# GRANT ALL PRIVILEGES ON DATABASE pyramid_matakuliah TO pyramid_user;
